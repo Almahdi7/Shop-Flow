@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop flow</title>
+  </head>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <body>
+    <header id="site-header">
+      <a href="index.html" class="logo">My Store</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <button id="theme-toggle">🌙</button>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Welcome to ShopFlow</h1>
+          <p>
+            Discover amazing products, great prices and a smooth shopping
+            experience.
+          </p>
+          <a href="products.html" class="btn">Shop Now →</a>
+        </div>
+        <div class="hero-slider" id="hero-slider"></div>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <span>🚚</span>
+          <div>
+            <h3>Free shipping</h3>
+            <p>On orders over $100</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span>🔒</span>
+          <div>
+            <h3>Secure checkout</h3>
+            <p>Your details stay in your browser</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span>↩️</span>
+          <div>
+            <h3>Easy returns</h3>
+            <p>Shop with confidence</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span>⭐</span>
+          <div>
+            <h3>Top rated</h3>
+            <p>Hand-picked best sellers</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-head">
+        <h2>Featured Products</h2>
+        <a href="products.html">View all →</a>
+      </div>
+      <div id="featured-products" class="product-grid"></div>
+      <div
+        id="pagination"
+        class="pagination"
+        role="navigation"
+        aria-label="Pagination"
+      ></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 My Store. All rights reserved.</p>
+    </footer>
+    <script type="module" src="./JS/main.js"></script>
+    <script type="module" src="./JS/pages/home.js"></script>
+    <script>
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("shopflow_theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"),
+      );
+    </script>
+  </body>
+</html>

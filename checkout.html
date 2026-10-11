@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Complete your ShopFlow order." />
+    <title>Checkout | ShopFlow</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+    <main class="container">
+      <h1>Checkout</h1>
+      <p class="subtitle">Enter your details to complete your order.</p>
+
+      <div id="checkout-layout" class="checkout-layout">
+        <form id="checkout-form" novalidate>
+          <ol class="stepper" aria-label="Checkout progress">
+            <li class="active" data-step="1"><span>1</span> Shipping</li>
+            <li data-step="2"><span>2</span> Payment</li>
+            <li data-step="3"><span>3</span> Review</li>
+          </ol>
+
+          <section class="step" data-step="1">
+            <h2>Shipping information</h2>
+            <div class="form-grid">
+              <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="">Choose a country</option>
+                  <option value="United States">United States</option>
+                  <option value="Canada">Canada</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Syria">Syria</option>
+                </select>
+                <span class="error-msg"></span>
+              </div>
+              <div class="field full">
+                <label for="address">Street address</label>
+                <input id="address" name="address" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="zip">ZIP / postal code</label>
+                <input id="zip" name="zip" />
+                <span class="error-msg"></span>
+              </div>
+            </div>
+            <div class="step-actions">
+              <a href="cart.html" class="btn btn-outline">Back to Cart</a>
+              <button type="button" class="btn" data-next>
+                Continue to Payment
+              </button>
+            </div>
+          </section>
+
+          <section class="step" data-step="2" hidden>
+            <h2>Payment details</h2>
+            <p class="notice">
+              Demo checkout only. Do not enter real payment information.
+            </p>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="cardName">Name on card</label>
+                <input id="cardName" name="cardName" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field full">
+                <label for="cardNumber">Card number</label>
+                <input id="cardNumber" name="cardNumber" inputmode="numeric" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="expiry">Expiry (MM/YY)</label>
+                <input id="expiry" name="expiry" inputmode="numeric" />
+                <span class="error-msg"></span>
+              </div>
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" inputmode="numeric" />
+                <span class="error-msg"></span>
+              </div>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" data-back>
+                Back
+              </button>
+              <button type="button" class="btn" data-next>Review Order</button>
+            </div>
+          </section>
+
+          <section class="step" data-step="3" hidden>
+            <h2>Review your order</h2>
+            <div id="review"></div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" data-back>
+                Back
+              </button>
+              <button type="submit" class="btn" id="place-btn">
+                Place order
+              </button>
+            </div>
+          </section>
+        </form>
+
+        <aside id="checkout-summary" class="summary" aria-live="polite"></aside>
+      </div>
+
+      <section id="checkout-empty" class="state" hidden>
+        <p>Your cart is empty.</p>
+        <a href="products.html" class="btn">Browse products</a>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 My Store. All rights reserved.</p>
+    </footer>
+    <script>
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("shopflow_theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"),
+      );
+    </script>
+    <script type="module" src="JS/pages/checkout.js"></script>
+  </body>
+</html>

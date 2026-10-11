@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop flow</title>
+  </head>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <body>
+    <header id="site-header">
+      <a href="index.html" class="logo">My Store</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <button id="theme-toggle">🌙</button>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>My Orders</h1>
+      <p class="subtitle">Your previous orders and their details.</p>
+      <div id="order-banner" class="banner success" role="status" hidden></div>
+      <div id="orders-content"></div>
+    </main>
+
+    <script type="module" src="JS/pages/orders.js"></script>
+
+    <footer>
+      <p>&copy; 2026 My Store. All rights reserved.</p>
+    </footer>
+    <script type="module" src="./JS/main.js"></script>
+    <script>
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("shopflow_theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"),
+      );
+    </script>
+  </body>
+</html>

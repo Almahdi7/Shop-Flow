@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop flow</title>
+  </head>
+  <link rel="stylesheet" href="CSS/style.css" />
+  <body>
+    <header id="site-header">
+      <a href="index.html" class="logo">My Store</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+        <button id="theme-toggle">🌙</button>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="page-head">
+        <div>
+          <h1>All Products</h1>
+          <p class="subtitle">Find your favorite products</p>
+        </div>
+        <input
+          type="search"
+          id="search"
+          placeholder="Search products..."
+          aria-label="Search products"
+        />
+      </div>
+
+      <div class="products-layout">
+        <aside class="filters">
+          <h3>Categories</h3>
+          <ul id="category-list"></ul>
+
+          <h3>Price Range</h3>
+          <div class="price-filters">
+            <label
+              ><input type="radio" name="price" value="all" checked /> Any
+              price</label
+            >
+            <label
+              ><input type="radio" name="price" value="0-200" /> $0 –
+              $200</label
+            >
+            <label
+              ><input type="radio" name="price" value="200-500" /> $200 –
+              $500</label
+            >
+            <label
+              ><input type="radio" name="price" value="500-" /> $500+</label
+            >
+          </div>
+        </aside>
+
+        <section>
+          <div class="toolbar">
+            <p id="result-count"></p>
+            <label>
+              Sort by
+              <select id="sort">
+                <option value="popularity">Popularity</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name">Name: A–Z</option>
+              </select>
+            </label>
+          </div>
+          <div id="product-grid" class="product-grid"></div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2026 My Store. All rights reserved.</p>
+    </footer>
+    <script type="module" src="./JS/main.js"></script>
+    <script type="module" src="./JS/./pages/products.js"></script>
+    <script>
+      document.documentElement.setAttribute(
+        "data-theme",
+        localStorage.getItem("shopflow_theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"),
+      );
+    </script>
+  </body>
+</html>
